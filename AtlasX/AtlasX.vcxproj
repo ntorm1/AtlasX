@@ -66,19 +66,22 @@
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
       <LanguageStandard>stdcpp20</LanguageStandard>
-      <AdditionalIncludeDirectories>$(ProjectDir)include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)AtlasCore\include;$(SolutionDir)AtlasCore\external;$(ProjectDir)include;%(AdditionalIncludeDirectories);$(ProjectDir)external;$(ProjectDir)external\QtADS\src</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>$(Qt_DEFINES_);%(PreprocessorDefinitions);ADS_STATIC</PreprocessorDefinitions>
     </ClCompile>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
-      <AdditionalIncludeDirectories>$(ProjectDir)include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)AtlasCore\include;$(SolutionDir)AtlasCore\external;$(ProjectDir)include;%(AdditionalIncludeDirectories);$(ProjectDir)external;$(ProjectDir)external\QtADS\src</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>_UNICODE;UNICODE;%(PreprocessorDefinitions);ADS_STATIC</PreprocessorDefinitions>
     </ClCompile>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'" Label="Configuration">
     <ClCompile>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
-      <PrecompiledHeader>Use</PrecompiledHeader>
-      <PrecompiledHeaderFile>stdafx.h</PrecompiledHeaderFile>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <PrecompiledHeaderFile>
+      </PrecompiledHeaderFile>
       <WarningLevel>Level3</WarningLevel>
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
@@ -88,14 +91,15 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
     <QtMoc>
-      <PrependInclude>stdafx.h;%(PrependInclude)</PrependInclude>
+      <PrependInclude>%(PrependInclude)</PrependInclude>
     </QtMoc>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'" Label="Configuration">
     <ClCompile>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
-      <PrecompiledHeader>Use</PrecompiledHeader>
-      <PrecompiledHeaderFile>stdafx.h</PrecompiledHeaderFile>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <PrecompiledHeaderFile>
+      </PrecompiledHeaderFile>
       <WarningLevel>Level3</WarningLevel>
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
@@ -109,22 +113,88 @@
       <OptimizeReferences>true</OptimizeReferences>
     </Link>
     <QtMoc>
-      <PrependInclude>stdafx.h;%(PrependInclude)</PrependInclude>
+      <PrependInclude>%(PrependInclude)</PrependInclude>
     </QtMoc>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="src\atlasx\atlasx_manager.cpp" />
+    <ClCompile Include="src\data\atlasx_data_manager.cpp" />
+    <ClCompile Include="src\runner\AtlasXRunner.cpp" />
+    <ClCompile Include="src\workspace\AtlasXWorkspacePopup.cpp" />
+    <ClInclude Include="include\runner\AtlasXRunner.hpp" />
+    <QtMoc Include="include\workspace\AtlasXWorkspacePopups.hpp" />
+    <QtMoc Include="include\atlasx\atlasx_manager.hpp" />
+    <ClInclude Include="include\atlasx\AtlasXMacros.hpp" />
+    <ClInclude Include="include\atlasx_standard.hpp" />
+    <ClInclude Include="include\data\atlasx_data_manager.hpp" />
+    <QtRcc Include="external\QtADS\src\ads.qrc" />
     <QtRcc Include="ui\AtlasX.qrc" />
     <QtUic Include="ui\AtlasX.ui" />
     <QtMoc Include="include\AtlasX.h" />
+    <ClCompile Include="external\QtADS\src\ads_globals.cpp" />
+    <ClCompile Include="external\QtADS\src\AutoHideDockContainer.cpp" />
+    <ClCompile Include="external\QtADS\src\AutoHideSideBar.cpp" />
+    <ClCompile Include="external\QtADS\src\AutoHideTab.cpp" />
+    <ClCompile Include="external\QtADS\src\DockAreaTabBar.cpp" />
+    <ClCompile Include="external\QtADS\src\DockAreaTitleBar.cpp" />
+    <ClCompile Include="external\QtADS\src\DockAreaWidget.cpp" />
+    <ClCompile Include="external\QtADS\src\DockComponentsFactory.cpp" />
+    <ClCompile Include="external\QtADS\src\DockContainerWidget.cpp" />
+    <ClCompile Include="external\QtADS\src\DockFocusController.cpp" />
+    <ClCompile Include="external\QtADS\src\DockingStateReader.cpp" />
+    <ClCompile Include="external\QtADS\src\DockManager.cpp" />
+    <ClCompile Include="external\QtADS\src\DockOverlay.cpp" />
+    <ClCompile Include="external\QtADS\src\DockSplitter.cpp" />
+    <ClCompile Include="external\QtADS\src\DockWidget.cpp" />
+    <ClCompile Include="external\QtADS\src\DockWidgetTab.cpp" />
+    <ClCompile Include="external\QtADS\src\ElidingLabel.cpp" />
+    <ClCompile Include="external\QtADS\src\FloatingDockContainer.cpp" />
+    <ClCompile Include="external\QtADS\src\FloatingDragPreview.cpp" />
+    <ClCompile Include="external\QtADS\src\IconProvider.cpp" />
+    <ClCompile Include="external\QtADS\src\PushButton.cpp" />
+    <ClCompile Include="external\QtADS\src\ResizeHandle.cpp" />
     <ClCompile Include="src\AtlasX.cpp" />
     <ClCompile Include="main.cpp" />
+    <None Include="external\QtADS\src\qtadvanceddockingConfig.cmake" />
     <None Include="ui\AtlasX.ico" />
+    <QtUic Include="ui\data\AtlasXNewExchange.ui" />
+    <QtUic Include="ui\data\atlasx_data_manager.ui" />
+    <QtUic Include="ui\runner\AtlasXRunner.ui" />
     <ResourceCompile Include="ui\AtlasX.rc" />
-    <ClInclude Include="stdafx.h" />
-    <ClCompile Include="stdafx.cpp">
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">Create</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">Create</PrecompiledHeader>
-    </ClCompile>
+    <QtMoc Include="external\QtADS\src\ads_globals.h" />
+    <QtMoc Include="external\QtADS\src\AutoHideDockContainer.h" />
+    <QtMoc Include="external\QtADS\src\AutoHideSideBar.h" />
+    <QtMoc Include="external\QtADS\src\AutoHideTab.h" />
+    <QtMoc Include="external\QtADS\src\DockAreaTabBar.h" />
+    <QtMoc Include="external\QtADS\src\DockAreaTitleBar.h" />
+    <QtMoc Include="external\QtADS\src\DockAreaTitleBar_p.h" />
+    <QtMoc Include="external\QtADS\src\DockAreaWidget.h" />
+    <ClInclude Include="external\QtADS\src\DockComponentsFactory.h" />
+    <QtMoc Include="external\QtADS\src\DockContainerWidget.h" />
+    <QtMoc Include="external\QtADS\src\DockFocusController.h" />
+    <ClInclude Include="external\QtADS\src\DockingStateReader.h" />
+    <QtMoc Include="external\QtADS\src\DockManager.h" />
+    <QtMoc Include="external\QtADS\src\DockOverlay.h" />
+    <QtMoc Include="external\QtADS\src\DockSplitter.h" />
+    <QtMoc Include="external\QtADS\src\DockWidget.h" />
+    <QtMoc Include="external\QtADS\src\DockWidgetTab.h" />
+    <QtMoc Include="external\QtADS\src\ElidingLabel.h" />
+    <QtMoc Include="external\QtADS\src\FloatingDockContainer.h" />
+    <QtMoc Include="external\QtADS\src\FloatingDragPreview.h" />
+    <ClInclude Include="external\QtADS\src\IconProvider.h" />
+    <QtMoc Include="external\QtADS\src\PushButton.h" />
+    <QtMoc Include="external\QtADS\src\ResizeHandle.h" />
+    <ClInclude Include="include\atlasx\atlasx_impl.hpp" />
+    <ClInclude Include="include\atlasx_declare.hpp" />
+    <ClCompile Include="src\atlasx\atlasx_impl.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="external\QtADS\src\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\AtlasCore\AtlasCore.vcxproj">
+      <Project>{8a4b2297-2d02-4b47-aba7-0bb4883e0798}</Project>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Condition="Exists('$(QtMsBuild)\qt.targets')">

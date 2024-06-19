@@ -9,5 +9,22 @@
 
 // add headers that you want to pre-compile here
 #include "framework.h"
+#include <vector>
+#include <string>
+#include <string_view>
+#include <memory>
+#include <optional>
+#include <unordered_map>
+#include <filesystem>
+#include <set>
+#include <chrono>
+#include <format>
+#include <fstream>
+#include <sstream>
+
+#define TOML_EXCEPTIONS 0
+#include "expected.hpp"
+#include "unordered_dense.hpp"
+#include <nlohmann/json.hpp>
 
 #endif //PCH_H

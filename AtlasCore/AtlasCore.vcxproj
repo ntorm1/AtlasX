@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug|Win32">
@@ -113,6 +113,7 @@
       <PrecompiledHeader>Use</PrecompiledHeader>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
       <LanguageStandard>stdcpp20</LanguageStandard>
+      <AdditionalIncludeDirectories>$(ProjectDir)include;$(ProjectDir)external</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -130,6 +131,7 @@
       <ConformanceMode>true</ConformanceMode>
       <PrecompiledHeader>Use</PrecompiledHeader>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
+      <AdditionalIncludeDirectories>$(ProjectDir)include;$(ProjectDir)external</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -140,17 +142,39 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="framework.h" />
-    <ClInclude Include="pch.h" />
+    <ClInclude Include="external\expected.hpp" />
+    <ClInclude Include="external\unordered_dense.hpp" />
+    <ClInclude Include="include\exchange\Exchange.hpp" />
+    <ClInclude Include="include\exchange\ExchangeImpl.hpp" />
+    <ClInclude Include="include\exchange\ExchangeManager.hpp" />
+    <ClInclude Include="include\framework.h" />
+    <ClInclude Include="include\manager\AtlasManager.hpp" />
+    <ClInclude Include="include\standard\AtlasArray.hpp" />
+    <ClInclude Include="include\standard\AtlasDeclare.hpp" />
+    <ClInclude Include="include\standard\AtlasException.hpp" />
+    <ClInclude Include="include\standard\AtlasLinAlg.hpp" />
+    <ClInclude Include="include\standard\AtlasMacros.hpp" />
+    <ClInclude Include="include\standard\AtlasTime.hpp" />
+    <ClInclude Include="include\standard\AtlasTypes.hpp" />
+    <ClInclude Include="include\pch.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="dllmain.cpp" />
-    <ClCompile Include="pch.cpp">
+    <ClCompile Include="src\exchange\Asset.cpp" />
+    <ClCompile Include="src\exchange\Exchange.cpp" />
+    <ClCompile Include="src\exchange\ExchangeIO.cpp" />
+    <ClCompile Include="src\exchange\ExchangeManager.cpp" />
+    <ClCompile Include="src\pch.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
+    <ClCompile Include="src\manager\AtlasManager.cpp" />
+    <ClCompile Include="src\standard\AtlasTime.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="include\exchange\Asset.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

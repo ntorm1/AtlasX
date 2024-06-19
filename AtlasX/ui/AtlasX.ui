@@ -6,15 +6,15 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>600</width>
-    <height>400</height>
+    <width>779</width>
+    <height>655</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>AtlasX</string>
   </property>
   <widget class="QWidget" name="centralWidget">
-   <widget class="QWidget" name="">
+   <widget class="QWidget" name="layoutWidget">
     <property name="geometry">
      <rect>
       <x>20</x>
@@ -23,22 +23,7 @@
       <height>26</height>
      </rect>
     </property>
-    <layout class="QHBoxLayout" name="horizontalLayout">
-     <item>
-      <widget class="QPushButton" name="add_button">
-       <property name="text">
-        <string>Add</string>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QLabel" name="add_label">
-       <property name="text">
-        <string>TextLabel</string>
-       </property>
-      </widget>
-     </item>
-    </layout>
+    <layout class="QHBoxLayout" name="horizontalLayout"/>
    </widget>
   </widget>
   <widget class="QMenuBar" name="menuBar">
@@ -46,7 +31,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>600</width>
+     <width>779</width>
      <height>21</height>
     </rect>
    </property>
@@ -65,22 +50,5 @@
  <resources>
   <include location="AtlasX.qrc"/>
  </resources>
- <connections>
-  <connection>
-   <sender>add_button</sender>
-   <signal>clicked()</signal>
-   <receiver>add_label</receiver>
-   <slot>lower()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>60</x>
-     <y>80</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>131</x>
-     <y>80</y>
-    </hint>
-   </hints>
-  </connection>
- </connections>
+ <connections/>
 </ui>

@@ -1,0 +1,6 @@
+[submodule "AtlasX/external/QtADS"]
+	path = AtlasX/external/QtADS
+	url = https://github.com/githubuser0xFFFF/Qt-Advanced-Docking-System.git
+[submodule "external/qwt"]
+	path = external/qwt
+	url = https://github.com/opencor/qwt.git

@@ -1,20 +1,41 @@
 #pragma once
 
 #include <QtWidgets/QMainWindow>
-#include "ui_AtlasX.h"
+
+#include "atlasx_declare.hpp"
+#include "standard/AtlasTypes.hpp"
+
+using namespace Atlas;
+using namespace AtlasX;
 
 QT_BEGIN_NAMESPACE
-namespace Ui { class AtlasXClass; };
+namespace Ui {
+class AtlasXClass;
+};
 QT_END_NAMESPACE
 
-class AtlasX : public QMainWindow
-{
-    Q_OBJECT
+struct AtlasXComponents;
+
+namespace AtlasX {
+
+class AtlasXApp : public QMainWindow {
+  Q_OBJECT
 
 public:
-    AtlasX(QWidget *parent = nullptr);
-    ~AtlasX();
+  AtlasXApp(QWidget *parent = nullptr);
+  ~AtlasXApp();
+
+  void initToolbar() noexcept;
+  void initBottomToolbar() noexcept;
+  void onBuild() noexcept;
+
+  void onNewWorkSpace() noexcept;
+  void onSaveWorkSpace() noexcept;
+  void onLoadWorkSpace() noexcept;
 
 private:
-    Ui::AtlasXClass *ui;
+  Ui::AtlasXClass *ui;
+  UniquePtr<AtlasXImpl> impl;
+  UniquePtr<AtlasXComponents> components;
 };
+} // namespace AtlasX
